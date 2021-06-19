@@ -12,7 +12,7 @@ KNN <- function(grupo, classes, amostras, K)
     for(iGrupo in  1:dim(grupo)[1]){
       distancias[iGrupo] = distanciaCheby(grupo[iGrupo,], amostras[iAmostra,])
     }
-    for(iClass in 1:3){
+    for(iClass in 1:K){
       visinhoProx = which(distancias == min(distancias, na.rm = TRUE), arr.ind = TRUE)
       distancias[visinhoProx] = NA
       classeVisinhos[iClass] = classes[visinhoProx]

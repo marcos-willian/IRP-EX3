@@ -33,7 +33,7 @@ for(sd in c(0.3, 0.5, 0.7)){
   cores = c("green", "blue", "red", "#8B008B", "black")
   
     #Plotagem sem classificação
-    png(paste("IMG/",as.character(sd),"SEM.png"))
+    png(paste("IMG/_",as.character(sd)," SEM.png", sep = ""))
     plot(gaussianas, col = cores[classes], xlim = c(0,6), ylim = c(0,6), xlab ="X1", ylab = "X2", 
          main = "Pontos sem classificação", sub = paste("Desvio padrão: ", as.character(sd)))
     points(amostras, col = cores[5], pch = 19)
@@ -41,7 +41,7 @@ for(sd in c(0.3, 0.5, 0.7)){
   for(K in c(2, 4, 8)){
     classeAmostra = KNN(gaussianas, classes, amostras, K)
     
-    png(paste("IMG/",as.character(sd), as.character(K),"COM.png"))
+    png(paste("IMG/_",as.character(sd)," ", as.character(K)," COM.png",sep = ""))
     plot(gaussianas, col = cores[classes], xlim = c(0,6), ylim = c(0,6), xlab ="X1", ylab = "X2",
          main = "Pontos com classificação", sub = paste("K: ",as.character(K),"    Desvio padrão: ", as.character(sd)))
     points(amostras, col = cores[classeAmostra], pch = 19)
